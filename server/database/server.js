@@ -1,16 +1,19 @@
-const { Sequelize } = require('sequelize');
-const models = require('./models');
+const { Sequelize } = require("sequelize");
+const models = require("./models");
 
 const sequelize = new Sequelize({
-    dialect: 'sqlite',
-    storage: 'database/db.sqlite',
-    logging: false,
+  dialect: "sqlite",
+  storage: "database/db.sqlite",
+  logging: false,
 });
 
-sequelize.sync().then(() => {
+sequelize
+  .sync()
+  .then(() => {
     console.log("Models successfully (re)created.");
-}).catch((err) => {
+  })
+  .catch((err) => {
     console.log(err);
-})
+  });
 
-module.exports = {sequelize, models};
+module.exports = { sequelize, models };
