@@ -130,7 +130,7 @@ export default function CreateEditProductForm({ product = null, onSubmit, isLoad
           {/* Price */}
           <div>
             <label htmlFor="price" className="block text-sm font-medium text-gray-700">
-              Price (USD) *
+              Price (RON) *
             </label>
             <div className="mt-1">
               <input

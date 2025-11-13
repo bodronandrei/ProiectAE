@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../store/slices/userSlice'
 import { classNames } from '../utils/tailwind'
 
-const navigation = [
+const baseNavigation = [
   { name: 'Homepage', href: '/' },
   { name: 'Products', href: '/products' },
 ]
@@ -15,6 +15,10 @@ export default function Navbar() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const loggedIn = useSelector((state) => state.user.loggedIn)
+
+  const navigation = loggedIn
+    ? [...baseNavigation, { name: 'Cart 🛒', href: '/cart' }]
+    : baseNavigation
 
   const isActive = (href) => {
     return location.pathname === href
